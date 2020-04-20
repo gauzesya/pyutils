@@ -7,14 +7,14 @@ class progressbar(object):
 
     def __init__(self, obj, width_proportion=1, decostr=None):
         assert(hasattr(obj, '__iter__'))
-        self._obj = obj
+        self._obj = list(obj)
         assert(width_proportion <= 1 and width_proportion > 0)
         self._width_proportion = width_proportion
         if decostr is not None:
             assert(type(decostr) is str)
         self._decostr = decostr
         self._i = 0
-        self._len = sum(1 for _ in obj)
+        self._len = len(self._obj)
 
 
     def __iter__(self):
@@ -25,7 +25,7 @@ class progressbar(object):
             print()
             raise StopIteration()
 
-        return_obj = self._obj[self._i]
+        return_value = self._obj[self._i]
         self._i += 1
 
         # print progress bar
@@ -41,10 +41,10 @@ class progressbar(object):
             print('\r' + self._decostr + ' [{0}] {1:03d}%'.format(bar, int(per*100)), end="")
         else:
             print('\r[{0}] {1:03d}%'.format(bar, int(per*100)), end="")
-        return return_obj
+        return return_value
 
 
 # test
 if __name__=='__main__':
-    for i in progressbar(range(100), decostr='test'):
+    for i in progressbar(zip(range(100), range(100)), decostr='test'):
         time.sleep(0.1)
