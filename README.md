@@ -20,8 +20,8 @@ python setup.py install
 
 ## Licence
 
-MIT
+[MIT](https://github.com/gauzesya/python_progressbar/blob/master/LICENSE)
 
 ## Author
 
-[gauzesy](https://github.com/gauzesya)
+[gauzesya](https://github.com/gauzesya)
