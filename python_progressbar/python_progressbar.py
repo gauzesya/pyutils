@@ -14,13 +14,14 @@ class progressbar(object):
             assert(type(decostr) is str)
         self._decostr = decostr
         self._i = 0
+        self._len = sum(1 for _ in obj)
 
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self._i == len(self._obj):
+        if self._i == self._len:
             print()
             raise StopIteration()
 
@@ -33,7 +34,7 @@ class progressbar(object):
         else:
             bar_length = int((shutil.get_terminal_size()[0] - 8) * self._width_proportion)
 
-        per = self._i / len(self._obj)
+        per = self._i / self._len
         progress = int(per*bar_length)
         bar = "#" * progress + "." * (bar_length-progress)
         if self._decostr is not None:
