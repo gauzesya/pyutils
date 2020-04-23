@@ -1,16 +1,7 @@
 Python Progressbar
 ====
 
-Print progress bar for python
-
-## Usage
-```
-import time
-from python_progressbar.python_progressbar import progressbar
-
-for i in progressbar(range(100)):
-  time.sleep(0.1)
-```
+Python3 Utilities
 
 ## Install
 
@@ -18,9 +9,30 @@ for i in progressbar(range(100)):
 python setup.py install
 ```
 
+## Usage
+
+### Progressbar
+
+```
+import time
+from pyutils.progressbar import progressbar
+
+for i in progressbar(range(100)):
+  time.sleep(0.1)
+```
+
+### Logger
+
+```
+from pyutils.logger import logger
+
+printl = logger('test.txt')
+printl('test')
+```
+
 ## Licence
 
-[MIT](https://github.com/gauzesya/python_progressbar/blob/master/LICENSE)
+[MIT](https://github.com/gauzesya/pyutils/blob/master/LICENSE)
 
 ## Author
 
