@@ -8,8 +8,9 @@ class logger:
     def __del__(self):
         self._f.close()
 
-    def __call__(self, log, end='\n'):
-        print(log, end=end)
+    def __call__(self, log, end='\n', only_file=False):
+        if only_file is False:
+            print(log, end=end)
         self._f.write(str(log)+end)
 
 
