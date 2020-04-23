@@ -26,8 +26,8 @@ for i in progressbar(range(100)):
 ```
 from pyutils.logger import logger
 
-printl = logger('test.txt')
-printl('test')
+with logger('test.txt') as printl:
+  printl('test')
 ```
 
 ## Licence
